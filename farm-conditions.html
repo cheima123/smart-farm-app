@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmartAgroCare Dashboard</title>
+  <title>Farm Conditions</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -47,40 +47,31 @@
       color: #2e7d32;
       margin: 0;
     }
+
+    .card p {
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="dashboard">
-    <h1>🌿 SmartAgroCare Dashboard</h1>
+    <h1>🌿 Farm Conditions</h1>
 
     <div class="card">
-      <a href="farm-conditions.html" style="text-decoration: none; color: inherit;"></a>
-      <h2>🌡️ Monitor Farm Conditions</h2>
+      <h2>🌱 Soil Moisture</h2>
+      <p>65%</p>
     </div>
 
     <div class="card">
-      <a href="irrigation-control.html" style="text-decoration: none; color: inherit;"></a>
-      <h2>💧 Irrigation Control</h2>
+      <h2>🌡️ Temperature</h2>
+      <p>26°C</p>
     </div>
 
     <div class="card">
-      <a href="equipment-alerts.html" style="text-decoration: none; color: inherit;">
-      <h2>⚠️ Equipment Alerts</h2>
-    </div>
-
-    <div class="card">
-      <h2>🐾 Animal Protection</h2>
-    </div>
-
-    <div class="card">
-      <h2>🦠 Disease Detection</h2>
-      <input type="file" accept="image/*" capture="environment" id="plantImage" />
-      <button onclick="detectDisease()">Analyze</button>
-      <div id="result"></div>
-    </div>
-    
-    <div class="card">
-      <h2>📊 Data Insights</h2>
+      <h2>💧 Humidity</h2>
+      <p>80%</p>
     </div>
   </div>
 </body>
