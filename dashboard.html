@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json" />
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Farm Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartAgroCare Dashboard</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .dashboard {
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .dashboard h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 10px 0;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-right: 10px;
+      color: #4caf50;
+    }
+  </style>
 </head>
 <body>
-  <h1>🌿 Smart Farm Dashboard</h1>
+  <div class="dashboard">
+    <h1>🌿 SmartAgroCare Dashboard</h1>
 
-  <section id="sensors">
-    <h2>Sensor Data</h2>
-    <p>🌡️ Temperature: <span id="temp">-- °C</span></p>
-    <p>💧 Soil Moisture: <span id="moisture">-- %</span></p>
-  </section>
+    <div class="card">
+      <h2>🌡️ Monitor Farm Conditions</h2>
+      <p>Soil Moisture: 65%<br>
+         Temperature: 26°C<br>
+         Humidity: 80%</p>
+    </div>
 
-  <section id="pump">
-    <h2>Water Pump</h2>
-    <button onclick="togglePump()">Toggle Pump</button>
-    <p>Status: <span id="pump-status">OFF</span></p>
-  </section>
+    <div class="card">
+      <h2>💧 Irrigation Control</h2>
+      <p>Mode: Auto<br>Next Irrigation: In 3 hours</p>
+    </div>
 
-  <section id="alerts">
-    <h2>⚠️ Alerts</h2>
-    <ul id="alert-list"></ul>
-  </section>
+    <div class="card">
+      <h2>⚠️ Equipment Alerts</h2>
+      <p>No malfunctions detected</p>
+    </div>
 
-  <section id="consultation">
-    <h2>🧑‍🌾 Ask an Expert</h2>
-    <a href="#">Contact Consultant</a>
-  </section>
+    <div class="card">
+      <h2>🐾 Animal Protection</h2>
+      <p>No movement detected</p>
+    </div>
 
-  <script src="app.js"></script>
+    <div class="card">
+      <h2>📊 Data Insights</h2>
+      <p>View real-time and historical trends to improve crop yield and water efficiency.</p>
+    </div>
+  </div>
 </body>
 </html>
