@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartAgroCare Login</title>
+  <title>Welcome to AgroCare</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="login-container">
-    <div class="overlay"></div>
-    <div class="login-box">
-      <h1>SmartAgroCare</h1>
-      <form>
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required />
-        <a href="dashboard.html"><button type="button">Login</button></a>
-
-      </form>
-    </div>
+  <div class="splash-screen">
+    <h1>Welcome to AgroCare 🌱</h1>
+    <p>Loading...</p>
   </div>
+  <script>
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 3000);
+  </script>
 </body>
 </html>

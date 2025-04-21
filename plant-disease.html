@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Disease Detection - SmartAgroCare</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="plant-disease">
+    <h2>🌿 Detect Plant Disease</h2>
+    <p>Click the button below to take a photo of a plant leaf.</p>
+    <button onclick="takePhoto()">📷 Take a Photo</button>
+    <div id="photo-container" style="display: none;">
+      <h3>Captured Image:</h3>
+      <img id="captured-image" src="" alt="Captured Plant Leaf" />
+      <button onclick="analyzeImage()">Analyze</button>
+    </div>
+    <div id="analysis-result" style="display: none;">
+      <h3>Analysis Result:</h3>
+      <p id="result-text">Loading...</p>
+    </div>
+  </div>
+
+  <script>
+    function takePhoto() {
+      // Simulate taking a photo by selecting an image file
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            document.getElementById('captured-image').src = reader.result;
+            document.getElementById('photo-container').style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      input.click();
+    }
+
+    function analyzeImage() {
+      // Simulate image analysis with a mock result
+      document.getElementById('analysis-result').style.display = 'block';
+      document.getElementById('result-text').textContent = 'No disease detected. Your plant is healthy!';
+    }
+  </script>
+</body>
+</html>
