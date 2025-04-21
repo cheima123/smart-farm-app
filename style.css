@@ -1,68 +1,162 @@
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body, html {
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-
-.login-container {
-  background-image: url('img.webp'); /* must match file name */
+/* Body Styling with Background Image */
+body {
+  background-image: url('https://img.freepik.com/photos-gratuite/feuilles-bourgeons-the-vert-plantations-the-vert-matin_335224-955.jpg?t=st=1745266567~exp=1745270167~hmac=69788c0118339bb647dfc517056b6c43aa77fb7127c0cdd1c103c6d9719c5d63&w=996');
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #f4f9f4; /* Fallback color */
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* darken background */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  border-radius: 8px;
 }
 
-.login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 30px 25px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 350px;
+/* Header */
+header {
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 20px 0;
   text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.login-box h1 {
-  margin-bottom: 20px;
+header h1 {
+  font-size: 2rem;
+}
+
+/* Cards */
+.card {
+  background-color: #ffffffcc; /* Semi-transparent white */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  flex: 1 1 300px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-bottom: 10px;
   color: #2e7d32;
 }
 
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+.card p {
+  margin-bottom: 15px;
 }
 
-.login-box button {
-  width: 100%;
-  padding: 12px;
+/* Grid Layout for Dashboard */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Buttons */
+button {
   background-color: #2e7d32;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.login-box button:hover {
+button:hover {
   background-color: #1b5e20;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Notifications */
+.notification {
+  background-color: #fff3cd;
+  border-left: 6px solid #ffeeba;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Alerts */
+.alert {
+  background-color: #f8d7da;
+  border-left: 6px solid #f5c6cb;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* System Status */
+.status-list {
+  list-style: none;
+  padding: 0;
+}
+
+.status-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Image Preview */
+#photo-container {
+  margin-top: 20px;
+}
+
+#photo-container img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Analysis Result */
+#analysis-result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e8f5e9;
+  border-left: 6px solid #66bb6a;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
 }
