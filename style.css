@@ -1,162 +1,38 @@
-/* Base Styles */
-* {
+/* For all pages */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Body Styling with Background Image */
-body {
-  background-image: url('https://img.freepik.com/photos-gratuite/feuilles-bourgeons-the-vert-plantations-the-vert-matin_335224-955.jpg?t=st=1745266567~exp=1745270167~hmac=69788c0118339bb647dfc517056b6c43aa77fb7127c0cdd1c103c6d9719c5d63&w=996');
+/* Special for welcome page */
+.welcome-page {
+  background-image: url('./images/agriculture.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: #f4f9f4; /* Fallback color */
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
-  border-radius: 8px;
-}
-
-/* Header */
-header {
-  background-color: #2e7d32;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-header h1 {
-  font-size: 2rem;
-}
-
-/* Cards */
-.card {
-  background-color: #ffffffcc; /* Semi-transparent white */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  flex: 1 1 300px;
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h2 {
-  margin-bottom: 10px;
-  color: #2e7d32;
-}
-
-.card p {
-  margin-bottom: 15px;
-}
-
-/* Grid Layout for Dashboard */
-.dashboard {
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Buttons */
-button {
-  background-color: #2e7d32;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.welcome-container {
+  background: rgba(255, 255, 255, 0.7); /* little white transparent box */
+  padding: 20px 40px;
+  border-radius: 15px;
+}
+.welcome-text {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  animation: jumpText 0.6s infinite ease-in-out;
 }
 
-button:hover {
-  background-color: #1b5e20;
-}
-
-/* Forms */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Notifications */
-.notification {
-  background-color: #fff3cd;
-  border-left: 6px solid #ffeeba;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-/* Alerts */
-.alert {
-  background-color: #f8d7da;
-  border-left: 6px solid #f5c6cb;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-/* System Status */
-.status-list {
-  list-style: none;
-  padding: 0;
-}
-
-.status-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Image Preview */
-#photo-container {
-  margin-top: 20px;
-}
-
-#photo-container img {
-  max-width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Analysis Result */
-#analysis-result {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #e8f5e9;
-  border-left: 6px solid #66bb6a;
-  border-radius: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .dashboard {
-    flex-direction: column;
+@keyframes jumpText {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
   }
 }
