@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" />
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - SmartAgroCare</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AgroCare</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="dashboard">
-    <h1>SmartAgroCare Dashboard</h1>
-    <div class="cards">
-      <a href="notifications.html" class="card">Notifications</a>
-      <a href="sensor-data.html" class="card">Sensor Data</a>
-      <a href="water-pump.html" class="card">Water Pump</a>
-      <a href="critical-alerts.html" class="card">Critical Alerts</a>
-      <a href="system-status.html" class="card">System Status</a>
-      <a href="plant-disease.html" class="card">Plant Disease</a>
+    <div class="screen active" id="dashboard">
+        <h1>Dashboard</h1>
+        <div class="card" onclick="window.location.href='notifications.html'">🔔 Notifications</div>
+        <div class="card">📈 Sensor Data</div>
+        <div class="card" onclick="openCamera()">🌱 Detect Disease</div>
     </div>
-  </div>
+
+    <!-- Camera Section -->
+    <div id="cameraSection" class="screen" style="display:none;">
+        <h1>Take a Photo to Detect Disease</h1>
+        <video id="video" width="100%" height="auto" autoplay></video>
+        <button onclick="takePhoto()">Capture Photo</button>
+        <button onclick="goBackToDashboard()">⬅ Back to Dashboard</button>
+
+        <!-- Photo preview and message -->
+        <canvas id="canvas" style="display:none;"></canvas>
+        <div id="message" style="display:none;">
+            <h2>This plant has a problem.</h2>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

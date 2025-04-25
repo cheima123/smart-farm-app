@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" />
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notifications - SmartAgroCare</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - AgroCare</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="notifications">
-    <h2>Recent Notifications</h2>
-    <div class="notification">
-      <p>🕒 10:25 AM – Soil moisture too low in Zone B</p>
+    <div class="screen active">
+        <h1>Notifications</h1>
+        <ul class="notification-list">
+            <li><strong>10:25 AM</strong> - Soil moisture too low in Zone B</li>
+            <li><strong>06:14 AM</strong> - Pump not responding</li>
+            <li><strong>Yesterday</strong> - Animal presence detected</li>
+        </ul>
+        <button onclick="window.location.href='dashboard.html'">⬅ Back to Dashboard</button>
     </div>
-    <div class="notification">
-      <p>🕒 08:14 AM – Pump not responding</p>
-    </div>
-    <div class="notification">
-      <p>🕒 Yesterday – Animal presence detected</p>
-    </div>
-  </div>
+    <script src="app.js"></script>
 </body>
 </html>

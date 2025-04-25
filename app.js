@@ -1,59 +1,54 @@
- 
-function updateSensorData() {
-  const temp = (Math.random() * 10 + 20).toFixed(1); // 20°C to 30°C
-  const moisture = (Math.random() * 50 + 30).toFixed(1); // 30% to 80%
+// Function to open the camera
+function openCamera() {
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('cameraSection').style.display = 'flex';
+    
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const message = document.getElementById('message');
 
-  document.getElementById('temp').textContent = `${temp} °C`;
-  document.getElementById('moisture').textContent = `${moisture} %`;
-
-  checkForAlerts(temp, moisture);
+    // Request access to the webcam
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(error) {
+                alert("Error accessing webcam: " + error);
+            });
+    }
 }
 
-// Alerts based on sensor values
-function checkForAlerts(temp, moisture) {
-  const alertList = document.getElementById('alert-list');
-  alertList.innerHTML = ''; // clear previous alerts
+// Function to take the photo
+function takePhoto() {
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const message = document.getElementById('message');
 
-  if (parseFloat(temp) > 28) {
-    const li = document.createElement('li');
-    li.textContent = '🔥 Temperature is too high!';
-    alertList.appendChild(li);
-  }
+    // Draw the current frame from the video to the canvas
+    const context = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  if (parseFloat(moisture) < 40) {
-    const li = document.createElement('li');
-    li.textContent = '💧 Soil moisture is too low!';
-    alertList.appendChild(li);
-  }
+    // Hide the video and show the photo
+    video.style.display = 'none';
+    canvas.style.display = 'block';
+
+    // Show the message
+    message.style.display = 'block';
 }
 
-// Water pump logic
-let pumpOn = false;
+// Function to go back to the dashboard
+function goBackToDashboard() {
+    document.getElementById('cameraSection').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'flex';
 
-function togglePump() {
-  pumpOn = !pumpOn;
-  const status = document.getElementById('pump-status');
-  status.textContent = pumpOn ? 'ON' : 'OFF';
-
-  // Optional: Add a fake alert
-  const alertList = document.getElementById('alert-list');
-  const li = document.createElement('li');
-  li.textContent = pumpOn ? '🚿 Pump activated.' : '🚿 Pump deactivated.';
-  alertList.appendChild(li);
-}
-
-// Start sensor simulation
-setInterval(updateSensorData, 5000);
-updateSensorData(); // run once at start
-// Register service worker for offline use
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js')
-      .then((registration) => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch((error) => {
-        console.log('Service Worker registration failed:', error);
-      });
-  });
+    // Stop the video stream when leaving the camera section
+    const video = document.getElementById('video');
+    const stream = video.srcObject;
+    if (stream) {
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+    }
 }
