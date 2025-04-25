@@ -52,3 +52,22 @@ function goBackToDashboard() {
         tracks.forEach(track => track.stop());
     }
 }
+
+// Function to go back to the dashboard
+function goBackToDashboard() {
+    window.location.href = 'dashboard.html';
+}
+
+// Function to control the water pump
+function controlPump(state) {
+    if (state === 'on') {
+        alert('Water pump is now ON.');
+        // You can add additional logic here, such as updating the UI or sending a request to an API
+        document.getElementById('on-button').disabled = true;  // Disable the "Turn On" button when it's already on
+        document.getElementById('off-button').disabled = false; // Enable the "Turn Off" button
+    } else if (state === 'off') {
+        alert('Water pump is now OFF.');
+        document.getElementById('off-button').disabled = true; // Disable the "Turn Off" button when it's already off
+        document.getElementById('on-button').disabled = false;  // Enable the "Turn On" button
+    }
+}
